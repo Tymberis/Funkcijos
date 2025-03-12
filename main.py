@@ -9,14 +9,14 @@ arr = [1,5,6,8,9,11,15]
 # for i, num in enumerate(arr):
 #     row += f"[{i}/{num}], "
 # print(row)
-def print_list_col(arr):
-    for i, num in enumerate(arr):
-        print(f"i-{i}, grade-{num}")
+def print_list_col(arrs):
+    for p, num in enumerate(arrs):
+        print(f"i-{p}, grade-{num}")
 
-def print_list_row(arr):
+def print_list_row(arrs):
     row = ""
-    for i, num in enumerate(arr):
-        row += f"[{i}/{num}] "
+    for l, num in enumerate(arrs):
+        row += f"[{l}/{num}] "
     print(row)
 print_list_row(arr)
 
@@ -38,8 +38,8 @@ say_hi_to("rolandas")
 vardas = "julija"
 say_hi_to(vardas)
 
-list = [1,2,5]
-say_hi_to(arr)
+# list = [1,2,5]
+# say_hi_to(arr)
 
 
 def sim_pi():
@@ -51,13 +51,11 @@ print(sim_pi())
 
 print(math.pi)
 
-def make_initials(name, surname):
-    return (name[0] + surname[0].upper())
-
-pavarde = "marozaitis"
-initials = make_initials(vardas, pavarde)
-
-print(initials)
+# def make_initials(name, surname):
+#     return(name[0] + surname[0].upper())
+# pavarde = "marozaitis"
+# initials = make_initials(vardas, pavarde)
+# print(initials)
 print("\====================1=======================/")
 def suma(sk1,sk2):
     sums = sk1 + sk2
@@ -90,17 +88,17 @@ print(skaiciai2)
 print("\====================6=======================/")
 def random_int(minimalus,maximalus,length):
     rezultatas = []
-    for i in range(length):
+    for r in range(length):
         rezultatas.append(random.randint(minimalus,maximalus))
     return rezultatas
 
 masyv_sk = random_int(1,2,5)
 print(masyv_sk)
 print("\====================7=======================/")
-def suma_arr(arr):
+def suma_arr(sumos):
     viso = 0
-    for i in arr:
-        viso += i
+    for s in sumos:
+        viso += s
     return viso
 masyvv = masyv_sk
 sumaa = suma_arr(masyvv)
@@ -115,7 +113,7 @@ print(masyvaas)
 print(f"vidurkis: {vidurkis}")
 print("\====================9=======================/")
 def print_staciak(isor,vidin):
-    for i in range(isor):
+    for st in range(isor):
         for v in range(vidin):
             print("*", end=" ")
         print()
@@ -144,12 +142,13 @@ tekstukas = "Šiandien yra kovo 10"
 argumentavimas = print_argument(tekstukas)
 print(argumentavimas)
 print("\========================2=======================/")
-def generateRndStr(length):
+def generate_rnd_str(length):
     symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345678901234567890"
     text = ""
-    for i in range(length):
+    for gen in range(length):
         text += symbols[random.randint(0, len(symbols) - 1)]
     return text
+
 def nextas(txt):
     skaic = ""
     for s in txt:
@@ -162,97 +161,92 @@ def nextas(txt):
             print(s)
     if skaic:
         print(f"[{skaic}]")
-random_stringas = generateRndStr(10)
+random_stringas = generate_rnd_str(10)
 print(random_stringas)
 print("\nSimboliai pagal reikalavimus:")
 nextas(random_stringas)
 print("\========================3=======================/")
 def print_sveiki_sk(n):
-    if n <= 1:
-        return 0
     count = 0
-    for i in range(2, n):
-        if n % i == 0:
+    for sv in range(2, (math.isqrt(n)+1)):
+        if n % sv == 0:
             count += 1
+            if sv !=n // sv:
+                count += 1
     return count
 print(print_sveiki_sk(10))
 print(print_sveiki_sk(20))
 print("\========================4=======================/")
-def print_sveiki_sk(n):
-    if n <= 1:
-        return 0
+arr = []
+for i in range(100):
+    skaicius = random.randint(33,77)
+    arr.append(skaicius)
+
+def dalikliai(n):
     count = 0
-    for i in range(1, n + 1):
-        if n % i == 0:
+    for dal in range(1, n+1):
+        if dal % 1 == 0:
             count += 1
-    return count
-def masyvo_generavimas():
-    masyvas = []
-    for i in range(100):
-        gen_masyv = random.randint(33,77)
-        masyvas.append(gen_masyv)
-    return masyvas
-def rusiavimas(masyvas):
-    return sorted(print_sveiki_sk,reverse=True)
-masyvas = masyvo_generavimas()
-rusiuotas = rusiavimas(masyvas)
-print(rusiuotas)
+        return count
+arr = sorted(arr, key=lambda x: dalikliai(x), reverse=True)
+print(arr)
 print("\========================5=======================/")
-elementai = []
-for el in range(100):
-    sk = random.randint(333,777)
-    elementai.append(sk)
-print(elementai)
 def pirminis(n):
-    if n <= 1:
+    if print_sveiki_sk(n) == 0:
+        return True
+    else:
         return False
-    for i in range(2, int(n**0.5)+1):
-        if n % i == 0:
-            return False
-    return True
+arr = []
+for i in range(100):
+    arr.append(random.randint(333,777))
+print(arr)
 pirminiu_sk = 0
-for skaicius in elementai:
-    if pirminis(skaicius):
+for sk in arr:
+    if pirminis(sk):
         pirminiu_sk += 1
 print(f"Prime number count : {pirminiu_sk}")
 print("\========================6=======================/")
-# def generate_arr():
-#     ilgis = random.randint(10,20)
-#     for i in range(ilgis - 1):
-#         array = random.randint(0,10)
-#     return array
-# def generate_multiple_arr():
-#     num_arr = random.randint(10,30)
-#     rezultatas = []
-#     for k in range(num_arr-1):
-#         rezultatas.append(generate_arr())
-#     paskutinis_masyv = generate_arr()
-#     rezultatas.append(paskutinis_masyv)
-#     return rezultatas
-# pgr_masyv = generate_multiple_arr()
-# print(pgr_masyv)
+def generate_arr():
+    ilgis = random.randint(10,20)
+    for i in range(ilgis - 1):
+        array = random.randint(0,10)
+    return array
+def generate_multiple_arr():
+    num_arr = random.randint(10,30)
+    rezultatas = []
+    for k in range(num_arr-1):
+        rezultatas.append(generate_arr())
+    paskutinis_masyv = generate_arr()
+    rezultatas.append(paskutinis_masyv)
+    return rezultatas
+pgr_masyv = generate_multiple_arr()
+print(pgr_masyv)
 print("\========================7=======================/")
 print("\========================8=======================/")
-# def prime(p):
-#     if p <= 1:
-#         return False
-#     for i in range(2, p):
-#         if p % i == 0:
-#             return False
-#     return True
-# def print_masyv_3():
-#     arr = []
-#     for i in range(3):
-#         randomas = random.randint(1,33)
-#         arr.append(randomas)
-#     return arr
-#     while True:
-#     if prime(arr[-1]) and prime(arr[-2]) and prime(arr[-3]):
-#         break
-#     else:
-#         arr.apend(random.randint(1,33))
-#     return arr
-# print(generate_arr())
+def dalikliai(n):
+    if n < 2:
+        return False
+    for dal in range(2, int(n ** 0.5)+1):
+        if n % dal == 0:
+            return False
+    return True
+
+def elements():
+    array = []
+    for i in range(3):
+        array.append(random.randint(1,33))
+    not_primes = True
+    while not_primes:
+        not_primes = False
+        for num in array[-3:]:
+            if not dalikliai(num):
+                array.append(random.randint(1, 33))
+                not_primes = True
+                break
+    return array
+array = elements()
+print(array)
+
 print("\========================9=======================/")
 # Sugeneruokite masyvą iš 10 elementų, kurie yra masyvai iš 10 elementų, kurie yra atsitiktiniai skaičiai nuo 1 iki 100.
 # def pirminis(p):
